@@ -1,0 +1,31 @@
+/* FINDING MAXIMUM ELEMNET USING PREFIIX ARRAY */
+import java.util.Scanner;
+public class PrefixArr4 {
+    static int maxEle(int l , int r , int[] arr ){
+        int max=arr[l];
+        l+=1;
+        r+=1;
+        for(int i=l;i<r;i++){
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int t = sc.nextInt();
+        while(t>0){
+            int l = sc.nextInt();
+            int r = sc.nextInt();
+            System.out.print(maxEle(l,r,arr));
+            t--;
+        }
+        sc.close();
+    }
+}
