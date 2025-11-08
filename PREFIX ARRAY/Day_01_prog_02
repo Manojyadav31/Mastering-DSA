@@ -1,0 +1,34 @@
+/* Updating prefix array */
+import java.util.Scanner;
+public class PrefixArr3 {
+    static int[] uPdate(int l , int r ,int e , int[] diff){
+        diff[l]+=e;
+        diff[r+1]-=e;
+        return diff;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int []diff = new int[n+1];
+        int t = sc.nextInt();
+        while(t>0){
+            int l = sc.nextInt();
+            int r = sc.nextInt();
+            int e = sc.nextInt();
+            uPdate(l,r,e,diff);
+            t--;
+        }
+        for(int j=1;j<=n;j++){
+            diff[j]+=diff[j-1];
+        }
+        for(int k=0;k<n;k++){
+            System.out.print(diff[k]+arr[k]);
+            System.out.print(" ");
+        }
+        sc.close();
+    }
+}
